@@ -41,11 +41,16 @@ function Todo() {
 
 	console.log(items);
 
+	const handleNewTodo = (text) => {
+		putItems((prev) => [...prev, {key: getKey(), text: text, done: false}]);
+	};
+
   return (
     <div className="panel">
       <div className="panel-heading">
         ITSS ToDoアプリ
       </div>
+			<Input handleNewTodo={handleNewTodo} />
       {items.map(item => (
         <TodoItem
           key={item.key}
